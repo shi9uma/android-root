@@ -13,14 +13,22 @@
 
 1.   下载各类模块 MRepo，[MRepoApp/MRepo](https://github.com/MRepoApp/MRepo)
 2.   提供更好的 root 授权服务，Shamiko，[Shamiko releases](https://github.com/LSPosed/LSPosed.github.io/releases)
-3.   用于魔改系统行为，LSPosed，[LSPosed/LSPosed](https://github.com/LSPosed/LSPosed.git)
+3.   用于测试当前 root 环境，momo，[地址](https://t.me/s/magiskalpha/517)
+4.   用于测试设备环境下的 apk 列表，ApplistDetector，[Dr-TSNG/ApplistDetector](https://github.com/Dr-TSNG/ApplistDetector.git)
+5.   用于魔改系统行为，LSPosed，[LSPosed/LSPosed](https://github.com/LSPosed/LSPosed.git)
      1.   KTweak，[tytydraco/KTweak-Android-App](https://github.com/tytydraco/KTweak-Android-App.git)，优化手机省电
      2.   御坂美琴，[yujincheng08/BiliRoaming](https://github.com/yujincheng08/BiliRoaming.git)，软件优化
      3.   Telegram，[Sakion-Team/Re-Telegram](https://github.com/Sakion-Team/Re-Telegram.git)，软件优化
      4.   oicq，[cinit/QAuxiliary](https://github.com/cinit/QAuxiliary.git)，软件优化
      5.   快递，[duzhaokun123/FuckCainiao](https://github.com/duzhaokun123/FuckCainiao.git)，软件优化
      6.   知了，[shatyuka/Zhiliao](https://github.com/shatyuka/Zhiliao.git)，软件优化
-4.   其他可选 magisk 模块，[参考](https://magisk.suchenqaq.club/query.php?file_type=magisk&is_classification_list=true)
+     7.   ChiMi，[yonghen/chimi-](https://github.com/yonghen/chimi-)，界面定制信息等优化
+     8.   Disable Flag Secure，[LSPosed/DisableFlagSecure](https://github.com/LSPosed/DisableFlagSecure.git)，接触安卓安全限制
+     9.   Fuck Shake，[pwh-pwh/fuck_shake](https://github.com/pwh-pwh/fuck_shake.git)，屏蔽摇一摇广告
+     10.   TwiFucker，[Dr-TSNG/TwiFucker](https://github.com/Dr-TSNG/TwiFucker.git)，软件优化
+     11.   Re Telegram，[Sakion-Team/Re-Telegram](https://github.com/Sakion-Team/Re-Telegram.git)，软件优化
+     12.   Hide My Applist，[Dr-TSNG/Hide-My-Applist](https://github.com/Dr-TSNG/Hide-My-Applist.git)，某些应用的行为不是很干净，喜欢侵犯隐私
+6.   其他可选 magisk 模块，[参考](https://magisk.suchenqaq.club/query.php?file_type=magisk&is_classification_list=true)
 
      1.   [自动神仙救砖-支持OTA稳定Lite白名单版v3](https://downloads1.suchenqaq.club/magisk_module/system_optimization/%E8%87%AA%E5%8A%A8%E7%A5%9E%E4%BB%99%E6%95%91%E7%A0%96-%E6%94%AF%E6%8C%81OTA%E7%A8%B3%E5%AE%9ALite%E7%99%BD%E5%90%8D%E5%8D%95%E7%89%88v3v35.zip)
      2.   [去广告](https://downloads1.suchenqaq.club/magisk_module/system_optimization/%E5%8E%BB%E5%B9%BF%E5%91%8A-%E6%A9%B4%E7%82%ABv114(115).zip)
