@@ -1,6 +1,8 @@
 # android-root
 >   Android devices root records.
 
+[root record](./root-record.md)
+
 ## tools
 
 1.   adb 调试工具，[SDK Platform-Tools](https://developer.android.com/tools/releases/platform-tools?hl=zh-cn)，解压备用（文件路径不能含有中文名）
@@ -17,13 +19,13 @@
 4.   用于测试设备环境下的 apk 列表，ApplistDetector，[Dr-TSNG/ApplistDetector](https://github.com/Dr-TSNG/ApplistDetector.git)
 5.   用于魔改系统行为，LSPosed，[LSPosed/LSPosed](https://github.com/LSPosed/LSPosed.git)
      1.   KTweak，[tytydraco/KTweak-Android-App](https://github.com/tytydraco/KTweak-Android-App.git)，优化手机省电
-     2.   御坂美琴，[yujincheng08/BiliRoaming](https://github.com/yujincheng08/BiliRoaming.git)，软件优化
+     2.   哔哩哔哩，[yujincheng08/BiliRoaming](https://github.com/yujincheng08/BiliRoaming.git)，软件优化
      3.   Telegram，[Sakion-Team/Re-Telegram](https://github.com/Sakion-Team/Re-Telegram.git)，软件优化
-     4.   oicq，[cinit/QAuxiliary](https://github.com/cinit/QAuxiliary.git)，软件优化
-     5.   快递，[duzhaokun123/FuckCainiao](https://github.com/duzhaokun123/FuckCainiao.git)，软件优化
-     6.   知了，[shatyuka/Zhiliao](https://github.com/shatyuka/Zhiliao.git)，软件优化
+     4.   qq，[cinit/QAuxiliary](https://github.com/cinit/QAuxiliary.git)，软件优化
+     5.   菜鸟，[duzhaokun123/FuckCainiao](https://github.com/duzhaokun123/FuckCainiao.git)，软件优化
+     6.   知乎，[shatyuka/Zhiliao](https://github.com/shatyuka/Zhiliao.git)，软件优化
      7.   ChiMi，[yonghen/chimi-](https://github.com/yonghen/chimi-)，界面定制信息等优化
-     8.   Disable Flag Secure，[LSPosed/DisableFlagSecure](https://github.com/LSPosed/DisableFlagSecure.git)，接触安卓安全限制
+     8.   Disable Flag Secure，[LSPosed/DisableFlagSecure](https://github.com/LSPosed/DisableFlagSecure.git)，解除安卓安全限制（可以强制截屏）
      9.   Fuck Shake，[pwh-pwh/fuck_shake](https://github.com/pwh-pwh/fuck_shake.git)，屏蔽摇一摇广告
      10.   TwiFucker，[Dr-TSNG/TwiFucker](https://github.com/Dr-TSNG/TwiFucker.git)，软件优化
      11.   Re Telegram，[Sakion-Team/Re-Telegram](https://github.com/Sakion-Team/Re-Telegram.git)，软件优化
