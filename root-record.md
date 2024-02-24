@@ -4,9 +4,19 @@
 
 设备 Redmi Note 11T pro+，本文提供 Magisk 方案~~和 kernelSU 两种方案~~
 
+>   手机解锁前的碎碎念
+
+目前的国产手机搭载的系统，即便是很接近类原生，但是都会有某程度上的本地化定制。换言之，解锁 BL 之后须刷系统，目前国产对解 BL 比较友好的品牌：小米、摩托罗拉
+
+如果不在乎相机性能的话，你可以先物色一些机型，然后到 XDA 看看该机型的支持的 ROM 、Recovery ，或者直接去一些知名的 ROM 官方：Lineage OS 、PixelExperience 、PixelOS
+
+**总结一下**：解 BL、第三方 ROM、第三方 Recovery（非必须）、刷机之后相机会不太「好使」（厂商调教过），但是可以试试装 Google Camera、如果不玩需要「 Play 游戏」支持的游戏，可以考虑放弃 Google 框架，转投 microG，个人建议 RAM 12G 以上
+
 ## root
 
-**无论是选择 Magisk 还是 KernelSU，都需要先解 BootLoader**；**20240127** 更新国内厂商解锁现状，[参考链接 2](https://github.com/KHwang9883/MobileModels/blob/master/misc/bootloader-kernel-source.md)：
+**无论是选择 Magisk 还是 KernelSU，都需要先解 BootLoader**；
+
+**20240127** 更新国内厂商解锁现状，[参考链接 2](https://github.com/KHwang9883/MobileModels/blob/master/misc/bootloader-kernel-source.md)：
 
 -   小米（红米）：支持解锁，但需要通过地狱级难度的答题测试，解锁 ROOT 保修；
 -   OPPO（真我 realme）：部分机型支持解锁，需要申请，名额有限。要求机型上市时间必须超过 3 个月，同时需要 OPPO 官方开放该机型的深度测试。支持解锁 ROOT 保修，前提是设备可以正常回锁；
@@ -87,7 +97,6 @@
 2.   有的软件会尝试检测本机有没有 root 然后拒绝服务（例如金融、银行 app 类），因此需要隐藏 root；在 magisk 应用中，**右上角齿轮 - 隐藏 Magisk 应用 - 一路确定和创建快捷方式**，然后 **开启 zygisk 勾选框 - 遵守排除列表 - 配置排除列表 - 将想要排除掉的 app 勾选上（注意应用可以下拉全部选完）**，建议在下面安装了 shamiko 后采取白名单模式（只给 LSPosed、ES explorer 等应用获取 root 尝试）
 
      检测 google play 完整性：**google play store - 头像 - 设置 - 关于 - 连续点击 play store 版本直到进入开发者模式 - 常规 - 开发者选项 - 检查完整性**，主要观察返回的对话框中的 labels 属性：
-
      1.   包含 `MEETS_DEVICE_INTEGRITY` 表示一般性正常状态。应用正在由 Google Play 服务提供支持的 Android 设备上运行。设备通过了系统完整性检查，并且满足 Android 兼容性要求。
      2.   包含 `MEETS_STRONG_INTEGRITY` 表示应用正在由 Google Play 服务提供支持且具有强有力的系统完整性保证（如由硬件提供支持的启动完整性保证）的 Android 设备上运行。设备通过了系统完整性检查，并且满足 Android 兼容性要求。
      3.   仅含有 `MEETS_BASIC_INTEGRITY` 表明应用正在通过了基本系统完整性检查的设备上运行。设备不满足 Android 兼容性要求，未被批准运行 Google Play 服务。例如，设备可能正在运行无法识别的 Android 版本、有已解锁的引导加载程序，或者没有经过制造商的认证。
@@ -141,4 +150,4 @@
 2.   [KernelSU](https://kernelsu.org/zh_CN/guide/installation.html)
 3.   [小米 rom 下载](https://xiaomirom.com/series/)
 4.   [Motorola 通用官方解锁 Bootloader 教程](https://bbs.ixmoe.com/t/topic/25562)
-5.   
+5.   [荣耀手机 ROOT 失败，以后可能直接买非国产手机了](https://fast.v2ex.com/t/963863?p=1#r_13479161)
