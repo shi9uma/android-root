@@ -28,7 +28,6 @@
      8.   Disable Flag Secure，[LSPosed/DisableFlagSecure](https://github.com/LSPosed/DisableFlagSecure.git)，解除安卓安全限制（可以强制截屏）
      9.   Fuck Shake，[pwh-pwh/fuck_shake](https://github.com/pwh-pwh/fuck_shake.git)，屏蔽摇一摇广告
      10.   TwiFucker，[Dr-TSNG/TwiFucker](https://github.com/Dr-TSNG/TwiFucker.git)，软件优化
-     11.   Re Telegram，[Sakion-Team/Re-Telegram](https://github.com/Sakion-Team/Re-Telegram.git)，软件优化
      12.   Hide My Applist，[Dr-TSNG/Hide-My-Applist](https://github.com/Dr-TSNG/Hide-My-Applist.git)，某些应用的行为不是很干净，喜欢侵犯隐私
 6.   其他可选 magisk 模块，[参考](https://magisk.suchenqaq.club/query.php?file_type=magisk&is_classification_list=true)
 
