@@ -39,4 +39,6 @@
 
 1.   [刷了 Magisk 之后装什么？我推荐这 20+ 个模块](https://sspai.com/post/68531)
 2.   [2023 年 Magisk 推薦安裝的模組，提升手機效能、擋廣告、自定義主題](https://ivonblog.com/posts/magisk-recommended-modules/)
-3.   
+3.   [一加手机官方 ROM 下载](https://yun.daxiaamu.com/OnePlus_Roms/)
+4.   [一加手机 magisk 模块下载](https://yun.daxiaamu.com/files/magisk%E6%A8%A1%E5%9D%97/)
+5.   [小米 rom 下载](https://xiaomirom.com/series/)

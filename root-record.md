@@ -1,8 +1,8 @@
 # Android Root Record
 
->   记录 Android 设备 root 过程
+**请留意：本文旨在进行 Android 设备逆向攻防学习和交流，需要使用 root 权限进行部署和攻击。所涉及的设备为本人自行购入并使用。请读者在下载任何非法软件后的 24 小时内将其删除，对于由本文可能引起的任何后果，概不负责。本人强烈建议读者不要尝试获取和使用本文中的技术。**
 
-设备 Redmi Note 11T pro+，本文提供 Magisk 方案~~和 kernelSU 两种方案~~
+记录 Android 设备 root 过程，设备 Redmi Note 11T pro+，本文提供 Magisk 方案~~和 kernelSU 两种方案~~
 
 >   手机解锁前的碎碎念
 
@@ -38,11 +38,19 @@
 
 可以发现，以上两种方案都需要先解锁 BootLoader，因此想要进行 Android 设备的 root，首先确保自己的设备能够解锁 BootLoader，小米设备（**2024 年以前**）解锁方法如下：
 
-1.   下载[解锁工具](https://www.miui.com/unlock/index.html)，连接手机，按照要求操作
+1.   下载 [解锁工具](https://www.miui.com/unlock/index.html)，连接手机，按照要求操作
 2.   等待 7 天后，顺利进行解锁，**由于解锁会清除手机数据，记得备份重要数据（第三方软件）：通讯录，短信，各种视频图片等**
 3.   下载安卓调试工具，[SDK Platform-Tools](https://developer.android.com/tools/releases/platform-tools?hl=zh-cn)，解压备用（文件路径不能含有中文名）
 
 在 2024 年以后，官方的解锁条件变成 **答题 + 社区签到**，难度较高，因此建议采用其他还提供 bl 解锁的厂商进行 root 实践，例如联想、一加、索尼等
+
+### tee
+
+安卓设备的 TEE（Trusted Execution Environment，可信执行环境）是一种安全执行环境，通常由硬件和软件组成，用于保护敏感数据和执行安全操作。TEE 提供了一个与主操作系统隔离的环境，即在设备的处理器中创建一个安全的执行环境，独立于主操作系统，这个环境被设计成难以被恶意软件或攻击者访问，从而保护其中存储的敏感信息。
+
+指纹支付通常依赖于设备中储存的生物特征信息，例如用户的指纹模板。这些信息需要得到高度的保护，以防止未经授权的访问。TEE 提供了一个安全的执行环境，可以存储和处理这些生物特征信息，同时避免主操作系统或其他应用程序的干扰。
+
+**目前除了小米手机解锁后 TEE 不会出问题，其他品牌都会出问题。**一加解锁后 TEE 必掉，TEE 处于 **"假死"** 状态，即 TEE 检测到解锁后主动拒绝工作，导致例如微信的指纹支付模块直接失效。目前比较流行的操作是，利用软件自动为设备自动输入支付密码，**这种行为其实有风险，需要机主自行决断**。
 
 ### Magisk
 
@@ -50,7 +58,7 @@
 
 1.   pc 连接手机
 
-2.   **备份手机的 boot.img**：在 **设置 - 关于手机 - 全部信息 - MIUI 版本**，找到对应的 rom 版本，例如 `13.2.2.0(TLOEUXM)`，就到 [这里](https://xiaomirom.com/series/) 找到对应手机的对应版本 `13.2.2.0(TLOEUXM)` 下载完整 rom，得到 tgz 文件，一般需要解压两次，然后在 `images` 目录下找到 `boot.img` 文件
+2.   **备份手机的 boot.img**：在 **设置 - 关于手机 - 全部信息 - MIUI 版本**，找到对应的 rom 版本，例如 `13.2.2.0(TLOEUXM)`，就到 [这里](https://xiaomirom.com/series/) 找到对应手机的对应版本 `13.2.2.0(TLOEUXM)` 下载完整 rom，得到 tgz 文件，一般需要解压两次，然后在 `images` 目录下找到 `boot.img` 文件；或者看文末的 boot 提取方法，尝试提取手机的 boot
 
 3.   将 `boot.img` 复制到手机内存中任意位置，这里以 `Download` 文件夹为例
 
@@ -97,6 +105,7 @@
 2.   有的软件会尝试检测本机有没有 root 然后拒绝服务（例如金融、银行 app 类），因此需要隐藏 root；在 magisk 应用中，**右上角齿轮 - 隐藏 Magisk 应用 - 一路确定和创建快捷方式**，然后 **开启 zygisk 勾选框 - 遵守排除列表 - 配置排除列表 - 将想要排除掉的 app 勾选上（注意应用可以下拉全部选完）**，建议在下面安装了 shamiko 后采取白名单模式（只给 LSPosed、ES explorer 等应用获取 root 尝试）
 
      检测 google play 完整性：**google play store - 头像 - 设置 - 关于 - 连续点击 play store 版本直到进入开发者模式 - 常规 - 开发者选项 - 检查完整性**，主要观察返回的对话框中的 labels 属性：
+
      1.   包含 `MEETS_DEVICE_INTEGRITY` 表示一般性正常状态。应用正在由 Google Play 服务提供支持的 Android 设备上运行。设备通过了系统完整性检查，并且满足 Android 兼容性要求。
      2.   包含 `MEETS_STRONG_INTEGRITY` 表示应用正在由 Google Play 服务提供支持且具有强有力的系统完整性保证（如由硬件提供支持的启动完整性保证）的 Android 设备上运行。设备通过了系统完整性检查，并且满足 Android 兼容性要求。
      3.   仅含有 `MEETS_BASIC_INTEGRITY` 表明应用正在通过了基本系统完整性检查的设备上运行。设备不满足 Android 兼容性要求，未被批准运行 Google Play 服务。例如，设备可能正在运行无法识别的 Android 版本、有已解锁的引导加载程序，或者没有经过制造商的认证。
@@ -108,8 +117,6 @@
 5.   Shamiko，提供更好的 root 授权服务；zip 文件复制到手机，在 Magisk 的 **模块 - 从本地安装 - 选择 zip 文件 - 安装 - 重启手机**
 
 6.   LSPosed，用于魔改系统，zip 文件安装方式同上
-
-
 
 >   如果刷模块导致各种问题（例如界面崩溃无法点开 app、无法开机），以下是几种解决方案
 
@@ -144,6 +151,23 @@
 
 ~~目前 KernelSU 的生态还不够完善，很多好用的模组都是基于 LSPosed 进行开发，可以等到将来可以和 magisk 不分伯仲了再切换成 KernelSU 也不迟~~
 
+## others
+
+### extract boot by tool
+
+现在一些 rom 下载下来是进行了加密的，将其放在一个 payload.bin 文件内，需要使用工具来解包，参考这篇文章：[payload-dumper-go提取boot（payload提取boot.img）](https://magiskcn.com/payload-dumper-go-boot)
+
+### extract boot by hand
+
+这里以一加 ace 3 刻晴定制机为例，因为手机目前（20240307）还未放出官方 rom 的资源，没法直接提取其中的 boot.img，尝试直接在手机内提取 boot
+
+首先下载了以往最近的官方 rom，使用上文的工具进行了解包，成功提取到 boot 文件，目的是用作对比是否提取出真正的 boot
+
+1.   电脑连接手机，打开 usb 调试，使用 `adb shell` 进入手机系统
+2.   进入 boot 存放的目录：`cd /dev/block/by-name`（Android 14 是这样，不同的手机可能有不同路径）
+3.   可以看到 `boot_a`、`boot_b`、`init_boot_a`、`init_boot_b` 字样，即系统采用的是 A/B 分区，有两个内核，共享数据和设置，目的是在使用 a 时 b 在后台更新，下次重启直接使用 b 来重启以完成系统的升级，
+4.   使用 `ls -l boot_a` 可以看到 *lrwxrwxrwx 1 root root 16 1970-01-02 09:59 boot_a -> /dev/block/sde13*，即动态链接到了 `/dev/block/sde13`，继续查看之：`ls -l /dev/block/sde13`，得到权限为 *brw-------*，无 root 无法提取：`dd if=/dev/block/sde13 of=/sdcard/Download/boot_a.img`，返回 *dd: /dev/block/sde13: Permission denied*，还是等官方 ota 的 rom 再说了，否则就是刷一个其他系统然后再用 magisk 修补 boot
+
 ## references
 
 1.   [记录一下小米 13Ultra 的 root 和 play 商店解锁方案（KernelSU + LSPosed +Shamiko）](https://www.v2ex.com/t/953016)
@@ -151,3 +175,7 @@
 3.   [小米 rom 下载](https://xiaomirom.com/series/)
 4.   [Motorola 通用官方解锁 Bootloader 教程](https://bbs.ixmoe.com/t/topic/25562)
 5.   [荣耀手机 ROOT 失败，以后可能直接买非国产手机了](https://fast.v2ex.com/t/963863?p=1#r_13479161)
+6.   [一加手机官方 ROM 下载](https://yun.daxiaamu.com/OnePlus_Roms/)
+7.   [一加手机 magisk 模块下载](https://yun.daxiaamu.com/files/magisk%E6%A8%A1%E5%9D%97/)
+8.   [Android手机如何提取系统内核(boot.img镜像文件提取)](https://blog.csdn.net/weixin_43890033/article/details/114966941)
+9.   [Extract Boot.img Directly from Device Without Downloading Firmware](https://droidwin.com/extract-boot-img-directly-from-device-without-downloading-firmware/)
